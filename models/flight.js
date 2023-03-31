@@ -11,15 +11,20 @@ const flightSchema = new Schema({
     airport: {
         type: String,
         enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN'],
+        default: 'DEN'
     },
     flightNo: {
         type: Number,
-        required: true,
         min: 10,
         max: 9999
     },
     departs: {
-        type: Date
+        type: Date,
+        default: function() {
+            const yearFromDate = new Date();
+            yearFromDate.setFullYear(yearFromDate.getFullYear() + 1);
+            return yearFromDate;
+        }
     }
 }, {
     timestamps: true

@@ -19,10 +19,10 @@
             </select>
         </label><br>
         <label>Flight Number:
-            <input type="number" name="flightNo">
+            <input type="number" name="flightNo" required min="10" max="9999">
         </label><br>
         <label>Departs(mm/dd/yyyy):
-            <input type="daytime-local" name="departs">
+            <input type="daytime-local" name="departs" required>
         </label><br>
         <button type="submit">Add Flight</button>
     </form>

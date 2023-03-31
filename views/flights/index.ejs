@@ -16,7 +16,7 @@
         <td><%= f.airline %></td>
         <td><%= f.airport %></td>
         <td><%= f.flightNo %></td>
-        <td><%= f.departs.join('/ ') %></td>
+        <td><%= f.departs.toLocaleString() %></td>
     <!-- Close the forEach using EJS here -->
     <% }) %>
   </tbody>
