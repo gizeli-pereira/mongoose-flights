@@ -17,7 +17,8 @@
         <td><%= f.airport %></td>
         <td><%= f.flightNo %></td>
         <td><%= f.departs.toLocaleString() %></td>
-    <!-- Close the forEach using EJS here -->
+        <a href="/flights/<%= f._id %>">View Details | </a>
+   
     <% }) %>
   </tbody>
 </table>
