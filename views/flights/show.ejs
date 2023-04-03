@@ -6,9 +6,9 @@
 <div>Departure Airport: <%= flight.airport %></div>
 <div>Departure Time: <%= flight.departs %></div>
 
-<form action="/flights/<%= flight._id %>/destinations" method="POST"></form>
+<form action="/flights/<%= flight._id %>/destinations" method="POST">
 <label>Arrival Destination:
-    <select name="aiport">
+    <select name="airport">
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
         <option value="DEN">DEN</option>
@@ -19,10 +19,11 @@
 <label>Arrival Date/Time:
     <input type="daytime-local" name="arrival" required>
 </label><br>
-<button type="submit">Add Destination</button>
+<button type="submit" value="Add Destination">Add Destination</button>
 </form>
 
 <h2>Destinations</h2>
+
 <ul>
   <% flight.destinations.forEach(destination => { %>
     <li><%= destination.airport %> - <%= destination.arrival %></li>

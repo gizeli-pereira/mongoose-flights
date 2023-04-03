@@ -10,6 +10,7 @@ require('./config/database');
 
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights'); //updated with flights
+var destinationsRouter = require('./routes/destinations'); // destinations
 
 var app = express();
 
@@ -24,7 +25,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/flights', flightsRouter); //updated with flights
+app.use('/flights', flightsRouter); //updated with flighs
+app.use('/', destinationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

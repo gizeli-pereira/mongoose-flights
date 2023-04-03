@@ -1,19 +1,20 @@
 const Flight = require('../models/flight');
 
 module.exports = {
-    newCreate
+    create
 }
 
-async function newCreate(req, res) {
+async function create(req, res) {
+
     const flight = await Flight.findById(req.params.id);
-    console.log(flight);
+   
     const newDestination = {
         airport: req.body.airport,
         arrival: new Date(req.body.arrival)
     };
    
-    flight.destinations.push(newDestination);
-    
+    flight.destinations.push(req.body);
+   
     try {
         await flight.save()
        
