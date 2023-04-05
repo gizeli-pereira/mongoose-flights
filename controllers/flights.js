@@ -1,11 +1,13 @@
 const Flight = require('../models/flight');
+// const util = require('util');
+const Ticket = require('../models/ticket');
 
 module.exports = {
     new: newFlight,
     create,
     index,
     show,
-    delete: deleteFlight
+    // delete: deleteFlight
 };
 
 async function index(req, res) {
@@ -15,7 +17,8 @@ async function index(req, res) {
 
 async function show(req, res) {
     const flight = await Flight.findById(req.params.id);
-    res.render('flights/show', {title: 'Flight Detail', flight });
+    const ticket = await Ticket.find({ flight: flight._id})
+    res.render('flights/show', {title: 'Flight Detail', flight, ticket });
 }
 
 async function create(req, res) {
@@ -33,8 +36,13 @@ function newFlight(req, res) {
     res.render('flights/new');
 }
 
-function deleteFlight(req, res) {
-    Flight.deleteOne(req.params.id);
-    res.redirect('/flights');
-}
 
+// async function deleteFlight(req, res) {
+//   try {
+//     const flight = await util.promisify(Flight.findByIdAndDelete)(req.params.id);
+//     res.redirect('/');
+//   } catch (err) {
+//     // Handle error
+//     console.log(err);
+//   }
+// }

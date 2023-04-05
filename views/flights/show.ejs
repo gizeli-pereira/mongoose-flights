@@ -32,4 +32,32 @@
     <li><%= destination.airport %> - <%= destination.arrival %></li>
   <% }) %>
 </ul>
+
+<div>
+  <h2 >Tickets</h2>
+  <table>
+      <thead>
+          <th>
+              Seat
+          </th>
+          <th>
+              Price
+          </th>
+      </thead>
+      <% ticket.forEach(function(t) { %>
+          <tr>
+              <td><%= t.seat %></td>
+              <td><%= t.price %></td>
+              <!-- <td>
+                  <form action="/tickets/<%= ticket._id %>?_method=DELETE" method="POST" id="delete-ticket">
+                          <button type="submit" form="delete-ticket" class="btn btn-danger">Delete</button>
+                  </form>
+              </td> -->
+          </tr>
+      <% }) %>
+  </table>
+
+<a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary btn-lg btn-block" id="new-ticket-btn">Create a new ticket</a>
+</main>            
+</div>  
 <%- include('../partials/footer')%>
