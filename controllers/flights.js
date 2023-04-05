@@ -4,7 +4,8 @@ module.exports = {
     new: newFlight,
     create,
     index,
-    show
+    show,
+    delete: deleteFlight
 };
 
 async function index(req, res) {
@@ -32,4 +33,8 @@ function newFlight(req, res) {
     res.render('flights/new');
 }
 
+function deleteFlight(req, res) {
+    Flight.deleteOne(req.params.id);
+    res.redirect('/flights');
+}
 
