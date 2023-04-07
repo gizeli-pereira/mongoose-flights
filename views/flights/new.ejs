@@ -1,6 +1,8 @@
 <%- include('../partials/header')%>
 
+<div>
     <h2>Enter a Flight</h2>
+    <div class="add-flight-container">
     <form id="new-form" action="/flights" method="POST">
         <label>Airline:
             <select name="airline">
@@ -23,10 +25,10 @@
         </label><br>
         <label>Departs(mm/dd/yyyy):
             <input type="daytime-local" name="departs" required>
-        </label><br>
-        <button type="submit" value="Add Flight">Add Flight</button>
+        </label>
+        <br />
+        <button type="submit" class="create-btn" value="Add Flight">Add Flight</button>
     </form>
-
-
-
+    </div>
+</div>
 <%- include('../partials/footer')%>

@@ -20,20 +20,13 @@
         <td><%= f.flightNo %></td>
         <td><%= f.departs.toLocaleString() %></td>
         <td><a class="detail-link" href="/flights/<%= f._id %>">View Details</a></td>
-        <!-- <td> <form action="/flights/<%= f._id %>?_method=DELETE"
+        <td> <form action="/flights/<%= f._id %>?_method=DELETE"
           class="delete-form" method="POST">
-          <button type="submit">X</button>
-        </form> -->
+          <button type="submit" id="delete-flight">X</button>
+        </form>
       </td>
     <% }) %>
   </tbody>
 </table>
 
-<!-- <ul>
-  <% flights.forEach(function(f) { %>
-    <li>
-     
-    </li> -->
-    <!-- <% }); %> -->
-<!-- </ul> -->
 <%- include('../partials/footer') %>

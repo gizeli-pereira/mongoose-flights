@@ -1,10 +1,13 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #001219;
 }
 
 body {
+  /* background-color: #E9D8A6; */
+  background-image: url('/images/mongooseairport.jpg');
+  background-size: cover;
   margin: 0;
   height: 50vh;
   display: grid;
@@ -16,7 +19,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #CA6702;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -25,21 +28,6 @@ body > nav {
 
 h2 {
   text-align: center;
-}
-
-body > main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E8ECEB;
-  padding: 20px;
-  overflow-y: scroll;
-
-}
-
-body > main h1:first-child {
-  margin-bottom: 50px;
 }
 
 nav > a {
@@ -51,7 +39,7 @@ nav > a {
 
 nav > a:hover:not(.active) {
   color: white;
-  background-color: #424748;
+  background-color: #AE2012;
 }
 
 nav > a.active {
@@ -63,19 +51,14 @@ nav > a.active {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(2, minmax(auto, 22rem));
+  margin-left: 16em;
 }
 
 #new-form *,
 #add-destinations-form * {
-  font-size: 20px;
-  padding: 5px;
+  font-size: 17px;
+  padding: 10px;
   border-radius: 5px;
-}
-
-#new-form input[type="submit"] {
-  grid-column: span 2;
-  width: 10rem;
-  margin-left: auto;
 }
 
 table {
@@ -84,7 +67,7 @@ table {
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border-bottom: 3px solid #424748;
 }
 
 table td {
@@ -92,21 +75,30 @@ table td {
   text-align: center;
 }
 
-#list td:nth-child(2), #list td:nth-child(3){
-  min-width: 100px;
-}
-
 #list a {
   border-radius: 4px;
-  background-color: #B8C0C2;
+  background-color: #EE9B00;
   padding: 4px;
   text-decoration: none;
   font-size: 14px;
 }
 
 #list a:hover {
-  background-color: white;
+  background-color: #AE2012;
 }
+
+a, button {
+  box-shadow: inset 0 0 0 0 #ff8427;
+  color: #001219;
+  padding: 0 .25rem;
+  margin: 0 -.25rem;
+  transition: color .5s ease-in-out, box-shadow .3s ease-in-out;
+ }
+
+ a:hover, button:hover {
+  color: #fff;
+  box-shadow: inset 200px 0 0 0 #ff8427;
+ }
 
 .detail-link {
   text-align: right;
@@ -132,7 +124,6 @@ table td {
 
 #add-destinations-form input[type="submit"] {
   width: 10rem;
-  grid-column: 2 / 3;
 }
 
 hr {
@@ -148,4 +139,40 @@ ul {
 	
 li {
   font-weight: bold;
+}
+
+.create-btn {
+  width: 200px;
+  background-color: #EE9B00;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  margin-left: 9px;
+}
+
+#delete-flight {
+  background-color: #BB3E03;
+  color: aliceblue;
+  border-radius: 5px;
+}
+
+.add-flight-container {
+  width: 50%;
+  margin: 0 auto;
+ 
+}
+
+#select-airport {
+  width: 100px;
+}
+
+label {
+  font-size: 16px;
+}
+
+.flight-detail-container {
+  margin-left: 1em;
+}
+
+#details-h2 {
+  text-align: left;
 }

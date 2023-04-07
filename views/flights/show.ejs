@@ -1,7 +1,8 @@
 <%- include('../partials/header')%>
-
+<div class="flight-detail-container">
 <section id="show-page">
-<h2><%= title %></h2><br>
+
+<h2 id="details-h2">Flight Details</h2><br>
 
 <div>Airline: <%= flight.airline %></div><br>
 <div>Flight Number: <%= flight.flightNo %></div><br>
@@ -9,9 +10,9 @@
 <div>Departure Time: <%= flight.departs %></div><br>
 </section><br>
 
-<form id="add-destinations-form" action="/flights/<%= flight._id %>/destinations" method="POST">
-<label>Arrival Destination:</label><br>
-    <select name="airport">
+<form  action="/flights/<%= flight._id %>/destinations" method="POST">
+<label>Arrival Destination:</label>
+    <select name="airport" id="select-airport">
         <option value="AUS">AUS</option>
         <option value="DFW">DFW</option>
         <option value="DEN">DEN</option>
@@ -19,13 +20,18 @@
         <option value="SAN">SAN</option>
     </select>
 <br>
+<br>
 <label>Arrival Date/Time:
     <input type="daytime-local" name="arrival" required>
 </label><br>
-<button type="submit" value="Add Destination">Add Destination</button>
+<br>
+<button type="submit" class="create-btn" value="Add Destination">Add Destination</button>
 </form>
 
-<h2>Destinations</h2>
+<br />
+<hr />
+
+<h2 id="details-h2">Destinations</h2>
 
 <ul>
   <% flight.destinations.forEach(destination => { %>
@@ -33,8 +39,11 @@
   <% }) %>
 </ul>
 
+<br />
+<hr />
+
 <div>
-  <h2 >Tickets</h2>
+  <h2 id="details-h2">Tickets</h2>
   <table>
       <thead>
           <th>
@@ -48,16 +57,16 @@
           <tr>
               <td><%= t.seat %></td>
               <td><%= t.price %></td>
-              <!-- <td>
-                  <form action="/tickets/<%= ticket._id %>?_method=DELETE" method="POST" id="delete-ticket">
-                          <button type="submit" form="delete-ticket" class="btn btn-danger">Delete</button>
+              <td>
+                  <form action="/tickets/<%= t._id %>?_method=DELETE" method="POST" id="delete-ticket">
+                          
                   </form>
-              </td> -->
+              </td>
           </tr>
-      <% }) %>
-  </table>
-
-<a href="/flights/<%= flight._id %>/tickets/new" class="btn btn-primary btn-lg btn-block" id="new-ticket-btn">Create a new ticket</a>
-</main>            
-</div>  
+      <% }) %>  
+    </table>
+    <button type="submit" class="create-btn"><a href="/flights/<%= flight._id %>/tickets/new">Create a new ticket</a></button>
+    <button type="submit" form="delete-ticket" class="create-btn">Delete Ticket</button>         
+</div> 
+</div> 
 <%- include('../partials/footer')%>
