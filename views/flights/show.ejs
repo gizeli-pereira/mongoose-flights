@@ -22,7 +22,7 @@
 <br>
 <br>
 <label>Arrival Date/Time:
-    <input type="daytime-local" name="arrival" required>
+    <input type="datetime-local" name="arrival">
 </label><br>
 <br>
 <button type="submit" class="create-btn" value="Add Destination">Add Destination</button>
@@ -56,7 +56,7 @@
       <% ticket.forEach(function(t) { %>
           <tr>
               <td><%= t.seat %></td>
-              <td><%= t.price %></td>
+              <td>$<%= t.price %></td>
               <td>
                   <form action="/tickets/<%= t._id %>?_method=DELETE" method="POST" id="delete-ticket">
                           

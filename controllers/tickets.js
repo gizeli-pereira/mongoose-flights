@@ -8,11 +8,6 @@ module.exports = {
 };
 
 
-// async function deleteTicket(req, res) {
-//     const ticket = await Ticket.findByIdAndDelete(req.params.id);
-//         res.redirect('/tickets/new');
-// }
-
 async function deleteTicket(req, res) {
     try {
       const ticket = await Ticket.findById(req.params.id).populate('flight').exec();
